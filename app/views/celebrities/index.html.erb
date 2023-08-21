@@ -3,3 +3,21 @@
 
 <h3>je peux rechercher ici dans cette text area une celebrite</h3>
 <input type="text">
+
+<ul>
+<% @celebrities.each do |celebrity| %>
+
+ <li>
+  <div class="card" style="width: 18rem;">
+    <img src="https://avatars.githubusercontent.com/u/99690748?v=4.jpg" class="card-img-top" alt="<%= celebrity.name %>">
+    <div class="card-body">
+      <h5 class="card-title"><%= celebrity.name %></h5>
+      <p class="card-text"><%= celebrity.rating %> étoiles</p>
+      <p class="card-text"><%= celebrity.price %> €</p>
+      <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
+  </div>
+</div>
+  </li>
+
+<% end %>
+</ul>
