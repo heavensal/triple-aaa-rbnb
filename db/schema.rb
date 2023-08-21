@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_08_21_122557) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_122557) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_110607) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
->>>>>>> master
   create_table "celebrities", force: :cascade do |t|
     t.string "name"
     t.integer "rating"
@@ -54,10 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_110607) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-<<<<<<< HEAD
   add_foreign_key "bookings", "celebrities"
   add_foreign_key "bookings", "users"
-=======
->>>>>>> master
   add_foreign_key "celebrities", "users"
 end
