@@ -13,6 +13,7 @@ class CelebritiesController < ApplicationController
 
   def create
     @celebrity = Celebrity.new(celebrities_params)
+    @celebrity.user = current_user
     if @celebrity.save
       redirect_to celebrity_path(@celebrity)
     else
@@ -21,12 +22,12 @@ class CelebritiesController < ApplicationController
   end
 
   def edit
-    @celebrity = Celebrity.find(celebrities_params)
+    @celebrity = Celebrity.find(params[:id])
   end
 
   def update
-    @celebrity = Celebrity.update(celebrities_params)
-    if @celebrity.save
+    @celebrity = Celebrity.find(params[:id])
+    if @celebrity.update!(celebrities_params)
       redirect_to celebrity_path(@celebrity)
     else
       render :new, status: :unprocessable_entity
@@ -34,7 +35,8 @@ class CelebritiesController < ApplicationController
   end
 
   def destroy
-    @celebrity = Celebrity.destroy
+    @celebrity = Celebrity.find(params[:id])
+    @celebrity.destroy
     redirect_to celebrities_path
   end
 
@@ -43,5 +45,4 @@ class CelebritiesController < ApplicationController
   def celebrities_params
     params.require(:celebrity).permit(:name, :rating, :price)
   end
-
 end

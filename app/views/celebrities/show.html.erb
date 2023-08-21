@@ -1,12 +1,14 @@
 <h1>ICI DOIT S'AFFICHER UNE CELEBRITE</h1>
 
 <div class="container">
-<%= @celibrity.name %>
+<li><%= @celebrity.name %></li>
 
-<%= @celibrity.rating %>
+<li><%= @celebrity.rating %> étoiles</li>
 
-<%= @celibrity.price %>
+<li><%= @celebrity.price %> €</li>
 
 <button class="btn btn-primary">Louer ?</button>
-
+<%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity) %>
+<%= link_to "Supprimer la célébrité ?", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@celebrity.name} ?"}, class: 'text-danger' %>
+<%= link_to "Voir les résa de cette célébrité", celebrity_bookings_path(@celebrity) %>
 </div>
