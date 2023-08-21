@@ -1,3 +1,8 @@
 <h1>CREER UNE NOUVELLE CELEBRITE</h1>
 
 <h2>un form avec nom, prenom, prix</h2>
+<!-- app/views/restaurants/_form.html.erb -->
+<%= simple_form_for(celibrity) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit %>
+<% end %>
