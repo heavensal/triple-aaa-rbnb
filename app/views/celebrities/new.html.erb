@@ -5,6 +5,6 @@
 <%= simple_form_for @celebrity do |f| %>
   <%= f.input :name, placeholder: 'Beyonce' %>
   <%= f.input :price, placeholder: '100€' %>
-  <%= f.input :photo, as: :file %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>

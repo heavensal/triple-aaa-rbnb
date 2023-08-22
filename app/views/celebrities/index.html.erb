@@ -1,25 +1,26 @@
 <h1>ICI SE TROUVE TOUTES LES CELEBRITES</h1>
-<h2>il doit y avoir des cards de toutes les celebrites quand je clique dessus je dois atterrir dans la "SHOW" de la celebrite et donc celebrite/:id</h2>
 
 <h3>je peux rechercher ici dans cette text area une celebrite</h3>
 <input type="text">
 
-<ul>
+<div class = "cards-all">
 <% @celebrities.each do |celebrity| %>
-
- <li>
-  <div class="card" style="width: 18rem;">
-    <% if celebrity.photo.attached? %>
-    <%= cl_image_tag celebrity.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card">
+    <div class="all-images">
+      <% if celebrity.photo.attached? %>
+      <%= cl_image_tag celebrity.photo.key, crop: :fill %>
+    </div>
     <% end %>
-    <div class="card-body">
-      <h5 class="card-title"><%= celebrity.name %></h5>
-      <p class="card-text"><%= celebrity.rating %> étoiles</p>
-      <p class="card-text"><%= celebrity.price %> €</p>
-      <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
+    <div class="card-details">
+      <div class="card-body">
+        <h5 class="card-title"><%= celebrity.name %></h5>
+        <p class="card-text"><%= celebrity.price %> €</p>
+        <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
+      </div>
+      <div>
+        <p class="star"><%= celebrity.rating %><i class="fa-solid fa-star"></i></p>
+      </div>
+    </div>
   </div>
-</div>
-  </li>
-
 <% end %>
-</ul>
+</div>
