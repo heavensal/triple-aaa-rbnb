@@ -5,6 +5,7 @@
 
 <div class = "cards-all">
 <% @celebrities.each do |celebrity| %>
+<%= link_to celebrity_path(celebrity) do %>
   <div class="card">
     <div class="all-images">
       <% if celebrity.photos.attached? %>
@@ -15,12 +16,14 @@
       <div class="card-body">
         <h5 class="card-title"><%= celebrity.name %></h5>
         <p class="card-text"><%= celebrity.price %> €</p>
-        <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
+        <%# <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
+
       </div>
       <div>
         <p class="star"><%= celebrity.rating %><i class="fa-solid fa-star"></i></p>
       </div>
     </div>
   </div>
+  <% end %>
 <% end %>
 </div>
