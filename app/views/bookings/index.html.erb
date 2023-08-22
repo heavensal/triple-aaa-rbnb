@@ -1,3 +1,18 @@
 <h1>ICI JAI TOUS MES BOOKING d'une célébrité</h1>
 
-<%= @bookings %>
+
+<%= simple_form_for [@celebrity, @booking] do |f| %>
+  <%= f.input :date_debut %>
+  <%= f.input :date_fin %>
+  <%= f.submit %>
+  <% end %>
+
+<ul>
+
+ <% @bookings.each do |booking| %>
+  <li><%= booking.date_debut.year %>-<%= booking.date_debut.month %>-<%= booking.date_debut.day %>
+     ---<%= booking.date_fin.year %>-<%= booking.date_fin.month %>-<%= booking.date_fin.day %>
+      <%= link_to 'modifier ?', edit_booking_path(booking) %>
+  </li>
+ <% end %>
+</ul>
