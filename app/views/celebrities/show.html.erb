@@ -1,32 +1,64 @@
-<h1>Découvrez <%= @celebrity.name%></h1>
+<div class="container-fluid p-3">
+  <div class="p-3 mx-auto w-75 card rounded-5">
+    <div class="title p-3 m-3"><h2>Découvrez <%= @celebrity.name%></h2></div>
 
-<div class="container">
-<li><%= @celebrity.name %></li>
+    <div class="container d-flex p-3 m-3">
 
-<li><%= @celebrity.rating %> étoiles</li>
+      <% if @celebrity.photo.attached? %>
+        <div class="p-3">
+          <%= cl_image_tag @celebrity.photo.key, height: 300, width: 400, crop: :fill %>
+        </div>
+      <% end %>
 
-<li><%= @celebrity.price %> €</li>
+    </div>
 
-<% if @celebrity.photo.attached? %>
-<%= cl_image_tag @celebrity.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+    <div class="container d-flex p-3">
 
-<button class="btn btn-primary">Louer ?</button>
-<%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity) %>
-<%= link_to "Supprimer la célébrité ?", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@celebrity.name} ?"}, class: 'text-danger' %>
-<%= link_to "Voir les résa de cette célébrité", celebrity_bookings_path(@celebrity) %>
+      <div class="card w-50 p-3 m-3  border border-primary-subtle rounded-5">
+
+        <div class="p-3">
+          <p>
+            <strong>Cette célébrité a une note de</strong>
+          </p>
+          <p>
+            <% if @celebrity.rating %>
+              <%= @celebrity.rating %> étoiles
+            <% else %>
+              Il n'y a pas encore d'avis.
+            <% end %>
+          </p>
+        </div>
+
+        <div class="p-3">
+          <p><strong>Cette célébrité a été mise en vente par</strong> </p>
+          <p><%= @celebrity.user.email %></p>
+        </div>
+        <div class="p-3">
+          <p><strong>Par nuit, cela vous coûtera :</strong></p>
+          <p><%= @celebrity.price %> €</p>
+        </div>
+
+      </div>
+
+      <div class="card w-50 p-3 m-3 border border-primary-subtle rounded-5">
+        <%= link_to "Louer", celebrity_bookings_path(@celebrity), {:class => "btn btn-primary p-3 m-3"} %>
+        <%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity), {:class => "btn btn-secondary p-3 m-3"} %>
+        <%= link_to "Supprimer la célébrité", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@celebrity.name} ?"}, class: 'btn btn-danger p-3 m-3' %>
+      </div>
+
+
+  </div>
+
+  <div class="card border border-primary-subtle rounded-5 p-3 m-3">
+    <ul>
+      <% @bookings.each do |booking| %>
+        <li class="list-group-item p-3">
+          <%= link_to "Modifier", edit_booking_path(booking), {:class => "btn btn-secondary p-3 m-3"}%>
+          <%= booking.date_debut.strftime('%a %d %b %Y') %>///
+          <%= booking.date_fin.strftime('%a %d %b %Y') %>
+      </li>
+      <% end %>
+    </ul>
 </div>
-
-<h1>UPDATE un booking</h1>
-
-<h2>un form avec le booking pour le modifier</h2>
-
-<ul>
-
- <% @bookings.each do |booking| %>
-  <li><%= booking.date_debut.year %>-<%= booking.date_debut.month %>-<%= booking.date_debut.day %>
-     ---<%= booking.date_fin.year %>-<%= booking.date_fin.month %>-<%= booking.date_fin.day %>
-     <%= link_to "Modifier", edit_booking_path(booking)%>
-  </li>
- <% end %>
-</ul>
+</div>
+</div>
