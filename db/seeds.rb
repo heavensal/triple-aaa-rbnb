@@ -23,4 +23,5 @@ celebrity_beyonce = Celebrity.new(name:"Beyonce", rating: 5, price: 1500, user_i
 celebrity_beyonce.photo.attach(io: file_beyonce, filename: "beyonce.png", content_type: "image/png")
 celebrity_beyonce.save!
 
+
 puts "c'est bon"
