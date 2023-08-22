@@ -2,11 +2,10 @@
 
 <h2>un form avec la célébrité et des fields pour modifier</h2>
 
-
-
 <%= simple_form_for @celebrity do |f| %>
   <%= f.input :name %>
   <%= f.input :price %>
   <%= f.input :rating %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>

@@ -9,7 +9,9 @@
 
  <li>
   <div class="card" style="width: 18rem;">
-    <img src="https://avatars.githubusercontent.com/u/99690748?v=4.jpg" class="card-img-top" alt="<%= celebrity.name %>">
+    <% if celebrity.photo.attached? %>
+    <%= cl_image_tag celebrity.photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= celebrity.name %></h5>
       <p class="card-text"><%= celebrity.rating %> étoiles</p>
