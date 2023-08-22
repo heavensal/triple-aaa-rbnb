@@ -1,0 +1,11 @@
+<h1>UPDATE un booking</h1>
+
+<h2>un form avec le booking pour le modifier</h2>
+
+
+
+<%= simple_form_for [@celebrity, @booking] do |f| %>
+  <%= f.input :date_debut %>
+  <%= f.input :date_fin %>
+  <%= f.submit %>
+<% end %>
