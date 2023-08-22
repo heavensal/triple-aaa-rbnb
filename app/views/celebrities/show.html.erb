@@ -7,6 +7,10 @@
 
 <li><%= @celebrity.price %> €</li>
 
+<% if @celebrity.photo.attached? %>
+<%= cl_image_tag @celebrity.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+
 <button class="btn btn-primary">Louer ?</button>
 <%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity) %>
 <%= link_to "Supprimer la célébrité ?", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@celebrity.name} ?"}, class: 'text-danger' %>
