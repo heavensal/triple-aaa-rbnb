@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
     @celebrity = @booking.celebrity
     @booking.update!(booking_params)
     if @booking.save
-      redirect_to celebrity_bookings_path(@celebrity)
+      redirect_to celebrity_path(@celebrity)
     else
       render 'celebrity/show', status: :unprocessable_entity
     end
