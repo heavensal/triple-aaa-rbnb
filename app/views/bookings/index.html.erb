@@ -7,12 +7,14 @@
   <%= f.submit %>
   <% end %>
 
-<ul>
-
- <% @bookings.each do |booking| %>
-  <li><%= booking.date_debut.year %>-<%= booking.date_debut.month %>-<%= booking.date_debut.day %>
-     ---<%= booking.date_fin.year %>-<%= booking.date_fin.month %>-<%= booking.date_fin.day %>
-      <%= link_to 'modifier ?', edit_booking_path(booking) %>
-  </li>
- <% end %>
-</ul>
+<div class="border border-5 border-primary-subtle rounded-5 p-3 m-3 w-50">
+    <ul>
+      <% @bookings.each do |booking| %>
+        <li class="list-group-item p-1">
+          <%= link_to "Modifier", edit_booking_path(booking), {:class => "btn btn-secondary p-1 m-1"}%>
+          <%= booking.date_debut.strftime('%a %d %b %Y') %>///
+          <%= booking.date_fin.strftime('%a %d %b %Y') %>
+      </li>
+      <% end %>
+    </ul>
+</div>
