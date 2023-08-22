@@ -1,8 +1,11 @@
-<h1>CREER UNE NOUVELLE CELEBRITE</h1>
+<h1>Mettre votre célébrité sur Rbnb triple AAA </h1>
 
-<h2>un form avec nom, prenom, prix</h2>
-<!-- app/views/restaurants/_form.html.erb -->
-<%= simple_form_for(celebrity) do |f| %>
-  <%= f.input :name %>
+<h2>Parlez-nous de votre célébrité</h2>
+
+<%= simple_form_for @celebrity do |f| %>
+  <%= f.input :name, placeholder: 'Beyonce' %>
+  <%= f.input :price, placeholder: '100€' %>
+  <%= f.input :photo, as: :file %>
+
   <%= f.submit %>
 <% end %>
