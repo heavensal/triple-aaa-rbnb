@@ -7,8 +7,8 @@
 <% @celebrities.each do |celebrity| %>
   <div class="card">
     <div class="all-images">
-      <% if celebrity.photo.attached? %>
-      <%= cl_image_tag celebrity.photo.key, crop: :fill %>
+      <% if celebrity.photos.attached? %>
+      <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
     </div>
     <% end %>
     <div class="card-details">
