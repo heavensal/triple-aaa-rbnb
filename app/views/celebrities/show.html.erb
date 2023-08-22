@@ -16,3 +16,17 @@
 <%= link_to "Supprimer la célébrité ?", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@celebrity.name} ?"}, class: 'text-danger' %>
 <%= link_to "Voir les résa de cette célébrité", celebrity_bookings_path(@celebrity) %>
 </div>
+
+<h1>UPDATE un booking</h1>
+
+<h2>un form avec le booking pour le modifier</h2>
+
+<ul>
+
+ <% @bookings.each do |booking| %>
+  <li><%= booking.date_debut.year %>-<%= booking.date_debut.month %>-<%= booking.date_debut.day %>
+     ---<%= booking.date_fin.year %>-<%= booking.date_fin.month %>-<%= booking.date_fin.day %>
+     <%= link_to "Modifier", edit_booking_path(booking)%>
+  </li>
+ <% end %>
+</ul>
