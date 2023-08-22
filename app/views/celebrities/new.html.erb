@@ -1,10 +1,26 @@
-<h1>Mettre votre célébrité sur Rbnb triple AAA </h1>
+<div class="d-flex container">
 
-<h2>Parlez-nous de votre célébrité</h2>
+  <div class="titre w-50">
+    <h1>Mettre votre célébrité sur Rbnb triple AAA </h1>
+    <h2>Parlez-nous de votre célébrité</h2>
 
-<%= simple_form_for @celebrity do |f| %>
-  <%= f.input :name, placeholder: 'Beyonce' %>
-  <%= f.input :price, placeholder: '100€' %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
+    <div data-controller="controller-toggle">
+      <button data-action="click->controller-toggle#fire" class="btn btn-outline-primary">Créez votre célébrité</button>
+      <div data-controller-toggle-target="newCelebrity" class="d-none">
+        <div class="w-50">
+          <%= simple_form_for @celebrity do |f| %>
+            <%= f.input :name, placeholder: 'Beyonce' %>
+            <%= f.input :price, placeholder: '100€' %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carte card w-50 h-50 ">
+    <img src="https://www.cartesfrance.fr/cartes/carte_france_villes.gif" alt="carte de France">
+  </div>
+
+</div>
