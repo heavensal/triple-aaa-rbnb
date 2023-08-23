@@ -1,0 +1,11 @@
+<h1>Ajoutez un commentaire à votre célébrité </h1>
+
+<h2>Vous venez de passer un moment avec votre célébrité préférée, partagez nous votre expérience</h2>
+
+      <div class="w-50">
+        <%= simple_form_for [@celebrity, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :comment %>
+        <%= f.submit %>
+        <% end %>
+      </div>
