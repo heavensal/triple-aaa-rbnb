@@ -1,11 +1,12 @@
 <h1>ICI JAI TOUS MES BOOKING d'une célébrité</h1>
 
-
-<%= simple_form_for [@celebrity, @booking] do |f| %>
-  <%= f.input :date_debut %>
-  <%= f.input :date_fin %>
-  <%= f.submit %>
+<div class="formulaire">
+  <%= simple_form_for [@celebrity, @booking] do |f| %>
+    <%= f.input :date_debut %>
+    <%= f.input :date_fin %>
+    <button class="myButton-louer"><%= f.submit %></button>
   <% end %>
+</div>
 
 <div class="border border-5 border-primary-subtle rounded-5 p-3 m-3 w-50">
     <ul>

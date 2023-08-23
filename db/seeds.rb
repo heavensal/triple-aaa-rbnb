@@ -2,15 +2,17 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-Celebrity.destroy_all
+
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
 require "faker"
 require "open-uri"
 
-# puts "je crée 3 faux utilisateurs"
-puts "Adam te crée 5 célébrités"
+puts "On reset la db"
+Celebrity.destroy_all
+
+puts "Adam te crée 8 célébrités"
 
 celebrity = Celebrity.new(name: "Rihanna", address: Faker::Address.full_address, price: rand(0..100_000), user_id: 1)
 # file = URI.open("https://images.bfmtv.com/qLN34DPsDwHHc8flGNofxdB9VFQ=/0x42:2048x1194/2048x0/images/Rihanna-le-26-septembre-2022-a-Hollywood-1508835.jpg")
@@ -37,9 +39,6 @@ end
 
 puts "1 super héro de plus fait !"
 sleep(0.1)
-
-# def create_bookings(celebrity)
-#   booking = Booking.new(date_debut: "2023-mm-dd [hh:mm:ss]", date_debut: "yyyy-mm-dd [hh:mm:ss]")
 
 # end
 

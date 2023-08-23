@@ -1,4 +1,4 @@
-<nav class="navbar-aaa">
+<%# <nav class="navbar-aaa">
 
   <div class="navbar-aaa-container">
 
@@ -9,15 +9,44 @@
     <div class="search-celebrity">
       <input type="text" placeholder="cherche une célébrité">
       <%= link_to "Mettre ma célébrité en location", new_celebrity_path %>
-    </div>
+    <%# </div>
 
     <div class="dashboard">
       <a href="">Mes célébrités</a>
       <a href="">Mes avis</a>
       <a href="">Déconnexion</a>
       <%# <%= link_to "Dashboard", root_path %>
-    </div>
+    <%# </div>
 
   </div>
 
+</nav>  %>
+
+<nav id='menu'>
+  <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+  <ul>
+    <li><%= link_to "Accueil", celebrities_path %></li>
+    <li><%= link_to "Mettre ma célébrité en location", new_celebrity_path %></li>
+    <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %></li>
+
+    <%# <li><a class='dropdown-arrow' href='http://'>Dashboard</a>
+      <ul class='sub-menus'>
+        <%# <li><a href='http://'>Mes célébrités</a></li>
+        <li><a href='http://'>Mes avis</a></li> %>
+        <%# <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %>
+      <%# </ul> %>
+    <%# </li> %>
+
+  </ul>
 </nav>
+
+<%# <script>
+  function updatemenu() {
+    if (document.getElementById('responsive-menu').checked == true) {
+      document.getElementById('menu').style.borderBottomRightRadius = '0';
+      document.getElementById('menu').style.borderBottomLeftRadius = '0';
+    }else{
+      document.getElementById('menu').style.borderRadius = '0px';
+    }
+  }
+</script> %>
