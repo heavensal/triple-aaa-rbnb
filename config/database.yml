@@ -86,4 +86,4 @@ production:
   <<: *default
   database: triple_aaa_rbnb_production
   username: triple_aaa_rbnb
-  # password: <%= ENV["TRIPLE_AAA_RBNB_DATABASE_PASSWORD"] %>
+  password: <%= ENV["TRIPLE_AAA_RBNB_DATABASE_PASSWORD"] %>
