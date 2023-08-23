@@ -61,11 +61,11 @@ class CelebritiesController < ApplicationController
   def rating
     @celebrity = Celebrity.find(params[:id])
     sum = 0
-    if @celebrity.reviews != []
+    if @celebrity.reviews.empty? == false
       @celebrity.reviews.each do |review|
         sum += review.rating
       end
-      @celebrity.rating = sum.fdiv(@celebrity.reviews.size).round(2)
+      @celebrity.update!(rating: sum.fdiv(@celebrity.reviews.size).round(2))
     else
       @celebrity.rating = 0
     end

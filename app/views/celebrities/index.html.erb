@@ -23,7 +23,15 @@
               <p class="card-text"><%= celebrity.price %> €</p>
 
               <div class="card-star">
-                <p><%= celebrity.rating %><i class="fa-solid fa-star"></i></p>
+                <p>
+                  <% if celebrity.reviews.empty? == false %>
+                    <%= celebrity.rating %>
+                    <i class="fa-solid fa-star"></i>
+                    <% else %>
+                    Pas d'avis
+                  <% end %>
+
+                </p>
               </div>
 
               <%# <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
