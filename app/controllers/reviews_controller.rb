@@ -22,6 +22,11 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.destroy
+    redirect_to celebrity_path
+  end
+
   private
 
   def review_params
