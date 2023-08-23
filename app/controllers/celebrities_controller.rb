@@ -6,6 +6,8 @@ class CelebritiesController < ApplicationController
   def show
     @celebrity = Celebrity.find(params[:id])
     @bookings = @celebrity.bookings
+    @reviews = @celebrity.reviews
+    rating
   end
 
   def new
@@ -53,6 +55,19 @@ class CelebritiesController < ApplicationController
   private
 
   def celebrities_params
-    params.require(:celebrity).permit(:name, :rating, :address, :price, photos: [], )
+    params.require(:celebrity).permit(:name, :rating, :address, :price, photos: [])
+  end
+
+  def rating
+    @celebrity = Celebrity.find(params[:id])
+    sum = 0
+    if @celebrity.reviews != nil
+      @celebrity.reviews.each do |review|
+        sum += review.rating
+      end
+      @celebrity.rating = sum/@celebrity.reviews.size
+    else
+      @celebrity.rating = 0
+    end
   end
 end
