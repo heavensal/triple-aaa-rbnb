@@ -65,7 +65,7 @@ class CelebritiesController < ApplicationController
       @celebrity.reviews.each do |review|
         sum += review.rating
       end
-      @celebrity.rating = sum / @celebrity.reviews.size
+      @celebrity.rating = sum.fdiv(@celebrity.reviews.size).round(2)
     else
       @celebrity.rating = 0
     end
