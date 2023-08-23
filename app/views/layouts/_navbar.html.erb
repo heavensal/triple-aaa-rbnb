@@ -1,15 +1,23 @@
-<h1></h1>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/celebrities">Célébrités</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-      <%= link_to "Mettre ma célébrité en location", new_celebrity_path %>
-      <%= link_to "Dashboard", root_path %>
-      </div>
+<nav class="navbar-aaa">
+
+  <div class="navbar-aaa-container">
+
+    <div class="logo-accueil">
+      <a href="/celebrities">Accueil</a>
     </div>
+
+    <div class="search-celebrity">
+      <input type="text" placeholder="cherche une célébrité">
+      <%= link_to "Mettre ma célébrité en location", new_celebrity_path %>
+    </div>
+
+    <div class="dashboard">
+      <a href="">Mes célébrités</a>
+      <a href="">Mes avis</a>
+      <a href="">Déconnexion</a>
+      <%# <%= link_to "Dashboard", root_path %>
+    </div>
+
   </div>
+
 </nav>
