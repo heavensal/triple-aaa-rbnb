@@ -6,11 +6,19 @@ class CelebritiesController < ApplicationController
   def show
     @celebrity = Celebrity.find(params[:id])
     @bookings = @celebrity.bookings
-
   end
 
   def new
     @celebrity = Celebrity.new
+    @celebrities = Celebrity.all
+    @markers = @celebrities.map do |celebrity|
+      {
+        lat: celebrity.latitude,
+        lng: celebrity.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { celebrity: celebrity }),
+        marker_html: render_to_string(partial: "marker", locals: { celebrity: celebrity })
+      }
+    end
   end
 
   def create
@@ -45,6 +53,6 @@ class CelebritiesController < ApplicationController
   private
 
   def celebrities_params
-    params.require(:celebrity).permit(:name, :rating, :price, photos: [])
+    params.require(:celebrity).permit(:name, :rating, :address, :price, photos: [], )
   end
 end
