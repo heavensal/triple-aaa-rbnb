@@ -10,30 +10,33 @@ require "faker"
 require "open-uri"
 
 # puts "je crée 3 faux utilisateurs"
-puts "Adam te crée 10 superhéros"
+puts "Adam te crée 5 célébrités"
 
-10.times do
-  celebrity = Celebrity.new(name: Faker::Superhero.name, rating: rand(0..5), price: rand(0..100_000), user_id: 1)
-  rand(1..4).times do
-    file = URI.open(Faker::Avatar.image(slug: "my-own-slug", size: "300x300", format: "jpg"))
-    celebrity.photos.attach(io: file, filename: "#{Faker::Superhero.name}.jpg", content_type: "image/jpg")
-  end
-  celebrity.save!
+celebrity = Celebrity.new(name: "Rihanna", address: Faker::Address.full_address, price: rand(0..100_000), user_id: 1)
+# file = URI.open("https://images.bfmtv.com/qLN34DPsDwHHc8flGNofxdB9VFQ=/0x42:2048x1194/2048x0/images/Rihanna-le-26-septembre-2022-a-Hollywood-1508835.jpg")
+# celebrity.photos.attach(io: file, filename: "rihanna.jpg", content_type: "image/jpg")
+celebrity.save!
 
-  rand(1..4).times do
-    booking = Booking.new(date_debut: "2023-09-15 [06:36:15]", date_fin: "2024-10-12 [00:00:00]", user_id: 1)
-    booking.celebrity = celebrity
-    puts booking.celebrity.name
-    puts booking.user.email
-    booking.save!
-    p booking
-  end
+celebrity = Celebrity.new(name: "Beyonce", address: Faker::Address.full_address, price: rand(0..100_000), user_id: 1)
+celebrity.save!
 
-  puts "1 super héro de plus fait !"
-  sleep(0.1)
+celebrity = Celebrity.new(name: "Michael Jackson", address: Faker::Address.full_address, price: rand(0..100_000), user_id: 1)
+celebrity.save!
+
+celebrity = Celebrity.new(name: "Sean Paul", address: Faker::Address.full_address, price: rand(0..100_000), user_id: 1)
+celebrity.save!
+
+rand(1..4).times do
+  booking = Booking.new(date_debut: "2023-09-15 [06:36:15]", date_fin: "2024-10-12 [00:00:00]", user_id: 1)
+  booking.celebrity = celebrity
+  puts booking.celebrity.name
+  puts booking.user.email
+  booking.save!
+  p booking
 end
 
-puts "tu dois avoir 10 super héros avec 1 a 4 photos chacun !"
+puts "1 super héro de plus fait !"
+sleep(0.1)
 
 # def create_bookings(celebrity)
 #   booking = Booking.new(date_debut: "2023-mm-dd [hh:mm:ss]", date_debut: "yyyy-mm-dd [hh:mm:ss]")

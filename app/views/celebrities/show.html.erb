@@ -33,6 +33,12 @@
           <p><strong>Cette célébrité a été mise en vente par</strong> </p>
           <p><%= @celebrity.user.email %></p>
         </div>
+
+        <div class="p-3">
+          <p><strong>Cette célébrité se situe vers</strong> </p>
+          <p><%= @celebrity.address %></p>
+        </div>
+
         <div class="p-3">
           <p><strong>Par nuit, cela vous coûtera :</strong></p>
           <p><%= @celebrity.price %> €</p>
@@ -41,7 +47,7 @@
       </div>
 
       <div class="border border-5 border-primary-subtle w-50 p-3 m-3 rounded-5 sticky-top">
-        <%= link_to "Louer", celebrity_bookings_path(@celebrity), {:class => "btn btn-primary p-3 m-3"} %>
+        <%= link_to "Louer", celebrity_bookings_path(@celebrity), {:class => "myButton-louer p-3 m-3"} %>
         <%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity), {:class => "btn btn-secondary p-3 m-3"} %>
         <%= link_to "Supprimer la célébrité", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@celebrity.name} ?"}, class: 'btn btn-danger p-3 m-3' %>
       </div>
