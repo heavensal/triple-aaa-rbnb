@@ -3,27 +3,37 @@
 <h3>je peux rechercher ici dans cette text area une celebrite</h3>
 <input type="text">
 
-<div class = "cards-all">
-<% @celebrities.each do |celebrity| %>
-<%= link_to celebrity_path(celebrity) do %>
-  <div class="card">
-    <div class="all-images">
-      <% if celebrity.photos.attached? %>
-      <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
-    </div>
-    <% end %>
-    <div class="card-details">
-      <div class="card-body">
-        <h5 class="card-title"><%= celebrity.name %></h5>
-        <p class="card-text"><%= celebrity.price %> €</p>
-        <%# <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
+<div class="container-body">
+  <div class = "container-cards">
 
-      </div>
-      <div>
-        <p class="star"><%= celebrity.rating %><i class="fa-solid fa-star"></i></p>
-      </div>
-    </div>
+    <% @celebrities.each do |celebrity| %>
+      <%= link_to celebrity_path(celebrity) do %>
+        <div class="card-celebrity">
+          <div class="all-images">
+            <% if celebrity.photos.attached? %>
+              <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
+            <% end %>
+          </div>
+
+          <div class="card-details">
+            <div class="card-body">
+
+              <h6 class="card-title"><%= celebrity.name %></h6>
+
+              <p class="card-text"><%= celebrity.price %> €</p>
+
+              <div class="card-star">
+                <p><%= celebrity.rating %><i class="fa-solid fa-star"></i></p>
+              </div>
+
+              <%# <%= link_to "Plus de détails ?", celebrity_path(celebrity) %>
+            </div>
+
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+
   </div>
-  <% end %>
-<% end %>
+
 </div>
