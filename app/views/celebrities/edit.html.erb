@@ -1,13 +1,13 @@
 <div class="d-flex container">
 
-  <div class="titre w-50">
+  <div class="titre w-50 enonce">
     <h1>Modifier les informations de votre célébrité</h1>
     <p>Vous pouvez améliorer votre visibilité sur le site Rbnb Triple AAA en completant la fiche de votre célébrité</p>
 
     <div data-controller="controller-toggle">
-      <button data-action="click->controller-toggle#update" class="btn btn-outline-primary">Mettre à jour le profil de votre célébrité</button>
+      <button data-action="click->controller-toggle#update" class="button-modifier text-center">Mettre à jour le profil de votre célébrité</button>
         <div data-controller-toggle-target="updateCelebrity" class="d-none">
-          <div class="w-50">
+          <div class="w-50 formulaire">
             <%= simple_form_for @celebrity do |f| %>
               <%= f.input :name, label: "Nom" %>
               <%= f.input :price, label: "Prix" %>

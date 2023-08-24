@@ -1,6 +1,6 @@
 <div class="container-fluid p-3 bg-white">
   <div class="p-3 mx-auto w-75">
-    <div class="title p-3 m-3"><h2>Découvrez <%= @celebrity.name%></h2></div>
+    <div class="title p-3 m-3"><h2>Découvrez <%= @celebrity.name %></h2></div>
 
     <div class="container-img">
 
@@ -82,15 +82,15 @@
             <li class="list-group-item my-5">
                   <div class="comments-div">
 
-                    <div class="rating-div border border-bottom">
+                    <div class="rating-div border-bottom">
                       <%= review.rating %> ⭐
                     </div>
 
-                    <div class="text-rating-div border border-bottom">
+                    <div class="text-rating-div border-bottom">
                       <%= review.comment %>
                     </div>
 
-                    <div class="delete-rating-div border border-bottom">
+                    <div class="delete-rating-div border-bottom">
 
                       <%= link_to "🗑️", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer votre commentaire ?"} %>
                     </div>
