@@ -1,10 +1,10 @@
-<h1>ICI JAI TOUS MES BOOKING d'une célébrité</h1>
+<h1>Vérifier les disponibilités de la célébrité de que souhaitez louer</h1>
 
 <div class="formulaire">
   <%= simple_form_for [@celebrity, @booking] do |f| %>
-    <%= f.input :date_debut %>
-    <%= f.input :date_fin %>
-    <button class="myButton-louer"><%= f.submit %></button>
+    <%= f.input :date_debut, label: "Date de début de la location" %>
+    <%= f.input :date_fin, label: "Date de fin de la location" %>
+    <button class="myButton-louer"><%= f.submit "Reserver votre célébrité" %></button>
   <% end %>
 </div>
 

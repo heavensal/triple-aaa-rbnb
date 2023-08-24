@@ -2,18 +2,18 @@
 
   <div class="titre w-50">
     <h1>Modifier les informations de votre célébrité</h1>
-    <p>Améliorez votre visibilité sur le site Rbnb Triple AAA en completant la fiche de votre célébrité</p>
+    <p>Vous pouvez améliorer votre visibilité sur le site Rbnb Triple AAA en completant la fiche de votre célébrité</p>
 
     <div data-controller="controller-toggle">
       <button data-action="click->controller-toggle#update" class="btn btn-outline-primary">Mettre à jour le profil de votre célébrité</button>
         <div data-controller-toggle-target="updateCelebrity" class="d-none">
           <div class="w-50">
             <%= simple_form_for @celebrity do |f| %>
-              <%= f.input :name %>
-              <%= f.input :price %>
-              <%= f.input :address %>
+              <%= f.input :name, label: "Nom" %>
+              <%= f.input :price, label: "Prix" %>
+              <%= f.input :address, label: "Adresse" %>
               <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-              <%= f.submit %>
+              <%= f.submit "Modifier votre célébrité"%>
             <% end %>
           </div>
         </div>

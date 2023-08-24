@@ -52,7 +52,7 @@
 
         <div class="w-90">
           <%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity), {:class => "button-modifier p-3 m-3"} %>
-          <%= link_to "Supprimer la célébrité", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{@celebrity.name} ?"}, class: 'button-delete p-3 m-3' %>
+          <%= link_to "Supprimer la célébrité", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer #{@celebrity.name} ?"}, class: 'button-delete p-3 m-3' %>
         </div>
 
       </div>
@@ -79,7 +79,7 @@
                 <%= review.rating %>///
                 <%= review.comment %>
             </li>
-            <button class="button-delete"><%= link_to "Supprimer le commentaire", celebrity_path %></button>
+            <button class="button-delete"><%= link_to "Supprimer le commentaire", celebrity_path(review), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer votre commentaire ?"} %></button>
             <% end %>
           </ul>
       </div>
