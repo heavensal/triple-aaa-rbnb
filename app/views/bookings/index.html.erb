@@ -1,22 +1,27 @@
-<div class="enonce">
-  <h1>Vérifier les disponibilités de la célébrité de que souhaitez louer</h1>
-</div>
-<div class="formulaire">
-  <%= simple_form_for [@celebrity, @booking] do |f| %>
-    <%= f.input :date_debut, label: "Date de début de la location" %>
-    <%= f.input :date_fin, label: "Date de fin de la location" %>
-    <button class="myButton-louer"><%= f.submit "Reserver votre célébrité" %></button>
-  <% end %>
-</div>
+<div class="d-flex flex-column ">
 
-<div class="border border-5 border-primary-subtle rounded-5 p-3 m-3 w-50">
-    <ul>
-      <% @bookings.each do |booking| %>
-        <li class="list-group-item p-1">
-          <%= link_to "Modifier", edit_booking_path(booking), {:class => "btn btn-secondary p-1 m-1"}%>
-          <%= booking.date_debut.strftime('%a %d %b %Y') %>///
-          <%= booking.date_fin.strftime('%a %d %b %Y') %>
-      </li>
-      <% end %>
-    </ul>
+  <div class="enonce my-3 py-3">
+    <h2>Vérifier les disponibilités de la célébrité de que souhaitez louer</h2>
+  </div>
+
+  <div class="formulaire infos-card rounded-4 p-5">
+    <%= simple_form_for [@celebrity, @booking] do |f| %>
+      <%= f.input :date_debut, label: "Date de début de la location" %>
+      <%= f.input :date_fin, label: "Date de fin de la location" %>
+      <div class="d-flex justify-content-center align-items-end pt-5"><%= f.submit "Reserver votre célébrité", class: "button-louer" %></div>
+    <% end %>
+  </div>
+
+  <div class="infos-card modifier-dispos p-3 mx-auto my-3 rounded-4">
+      <ul>
+        <% @bookings.each do |booking| %>
+          <li class="list-group-item p-1 text-center">
+            <%= link_to "✏️", edit_booking_path(booking)%>
+            <%= booking.date_debut.strftime('%a %d %b %Y') %>///
+            <%= booking.date_fin.strftime('%a %d %b %Y') %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+
 </div>

@@ -3,25 +3,25 @@
 }
 
 .button-louer {
+    border: none;
     width: 50%;
-    box-shadow: 0px 0px 8px 0px #54a3f7;
-    background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
-    background-color:#007dc1;
+    box-shadow: 0px 0px 8px 0px #1c4126;
+    background:linear-gradient(to bottom, #0e7a3b 5%, #078925 100%);
+    background-color:#0e7a3b;
     border-radius:4px;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
-
     font-size:16px;
     padding:8px 32px;
     text-decoration:none;
-    text-shadow:0px 0px 0px #154682;
+    text-shadow:0px 0px 0px #63f98e;
 
 }
 
 .button-louer:hover {
-  background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
-  background-color:#0061a7;
+  background:linear-gradient(to bottom, #21a03f 5%, #1a9818 100%);
+  background-color:#21d64b;
 }
 
 .button-louer:active {
@@ -30,15 +30,14 @@
 }
 
 .button-modifier {
-
+  border: none;
   width: 50%;
-  box-shadow: 0px 0px 8px 0px #9b9b9b;
-  background-color:#a6a7a8;
+  background-color:#146bdc;
+  box-shadow: 0px 0px 8px 0px #081327;
   border-radius:4px;
   display:inline-block;
   cursor:pointer;
-  color:#ffffff;
-
+  color:#fcfcfc;
   font-size:16px;
   padding:8px 32px;
   text-decoration:none;
@@ -46,7 +45,7 @@
 }
 
 .button-modifier:hover {
-	background-color:#c2c2c2;
+	background-color:#387ef6;
 }
 
 .button-modifier:active {
@@ -57,8 +56,8 @@
 .button-delete {
 
   width: 50%;
-	box-shadow: 0px 0px 8px 0px #972020;
-	background-color:#972020;
+	box-shadow: 0px 0px 8px 0px #3f0e0e;
+	background-color:#941717;
 	border-radius:4px;
 	display:inline-block;
 	cursor:pointer;
@@ -69,7 +68,7 @@
 	text-shadow:0px 0px 0px #98999b;
 }
 .button-delete:hover {
-	background-color:#c52b2b;
+	background-color:#e04141;
 }
 .button-delete:active {
 	position:relative;

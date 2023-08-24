@@ -1,27 +1,27 @@
-<div class="d-flex container">
+<div class="d-flex container justify-content-between my-5">
 
-  <div class="titre w-50">
-    <h1>Mettre votre célébrité sur Rbnb triple AAA </h1>
-    <h2>Parlez-nous de votre célébrité</h2>
+  <div class="enonce my-3 py-3">
+    <h2>Ajouter votre célébrité sur Rbnb triple AAA </h2>
+    <p>completer le profil de votre célébrité</p>
 
 
           <div data-controller="controller-toggle">
-            <button data-action="click->controller-toggle#fire" class="btn btn-outline-primary">Créez votre célébrité</button>
+            <button data-action="click->controller-toggle#fire" class="button-louer text-center">Créez votre célébrité</button>
             <div data-controller-toggle-target="newCelebrity" class="d-none">
-              <div class="w-50">
+              <div class="formulaire-modifier infos-card rounded-4 p-4">
                 <%= simple_form_for @celebrity do |f| %>
                   <%= f.input :name, label: "Nom", placeholder: 'Beyonce' %>
                   <%= f.input :price, label: "Prix", placeholder: '100€' %>
                   <%= f.input :address, label: "Adresse", input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}, class:"mapboxgl-ctrl-geocoder"} %>
                   <%= f.input :photos, as: :file, input_html: {multiple: true} %>
-                  <%= f.submit "Créer votre célébrité" %>
+                  <%= f.submit "Créer votre célébrité", class: "button-louer"%>
                   <% end %>
               </div>
             </div>
           </div>
       </div>
 
-    <div style="width: 50%; height: 600px;"
+    <div style="width: 50%; height: 600px;" class="my-3 py-3"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
