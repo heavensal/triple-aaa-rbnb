@@ -1,5 +1,5 @@
 <nav id='menu'>
-  <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+  <%# <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label> %>
   <ul>
     <li><%= link_to "Accueil", celebrities_path %></li>
     <li><%= link_to "Mettre ma célébrité en location", new_celebrity_path %></li>
@@ -40,7 +40,7 @@
 </nav>  %>
 
 
-<%# <script>
+ <%# <script>
   function updatemenu() {
     if (document.getElementById('responsive-menu').checked == true) {
       document.getElementById('menu').style.borderBottomRightRadius = '0';

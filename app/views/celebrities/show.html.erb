@@ -72,16 +72,34 @@
       </div>
 
       <div class="infos-card w-50 rounded-4 p-3 m-3 ">
-                <%= link_to "Ajouter un commentaire", new_celebrity_review_path(@celebrity), {:class => "btn btn-secondary p-1 m-1"}%>
-          <ul>
+
+      <div class="text-center">
+      <%= link_to "Ajouter un commentaire", new_celebrity_review_path(@celebrity), {:class => "button-louer p-1 my-3"}%>
+      </div>
+
+<ul>
             <% @reviews.each do |review| %>
-              <li class="list-group-item p-1">
-                <%= review.rating %>///
-                <%= review.comment %>
-            </li>
-            <button class="button-delete"><%= link_to "Supprimer le commentaire", celebrity_path %></button>
+            <li class="list-group-item my-5">
+                  <div class="comments-div">
+
+                    <div class="rating-div border border-bottom">
+                      <%= review.rating %> ⭐
+                    </div>
+
+                    <div class="text-rating-div border border-bottom">
+                      <%= review.comment %>
+                    </div>
+
+                    <div class="delete-rating-div border border-bottom">
+
+                      <%= link_to "🗑️", celebrity_path %>
+                    </div>
+
+                  </div>
+                  </li>
             <% end %>
-          </ul>
+</ul>
+
       </div>
     </div>
 
