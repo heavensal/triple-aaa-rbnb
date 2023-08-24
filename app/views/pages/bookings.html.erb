@@ -1,18 +1,10 @@
-<h1>Mes reservations </h1>
-
-<div class = "container-cards">
-  <h2>Mes Reservations</h2>
-    <% current_user.bookings.each do |booking| %>
-      <%= link_to booking_path(booking) do %>
-        <div class="card-celebrity">
-        <div class="card-details">
-          <div class="card-body">
-          <h5 class="card-title"> <%=booking.celebrity.name%></h5>
-            <h6 class="card-title"><%= booking.date_debut.strftime('%a %d %b %Y') %></h6>
-            <p class="card-text"><%= booking.date_fin.strftime('%a %d %b %Y') %></p>
-          </div>
-        </div>
-        </div>
-      <% end %>
-  <% end %>
+<div class = "container-cards infos-card p-3 rounded-4">
+<div class="card-celebrity d-flex align-items-center justify-content-center">
+    <h2 class="py-3 mb-5">📅 Mes Reservations</h2>
+</div>
+      <% current_user.bookings.each do |booking| %>
+            <h5> <%=booking.celebrity.name%></h5>
+              <p><%= booking.date_debut.strftime('%a %d %b %Y') %>
+              --- <%= booking.date_fin.strftime('%a %d %b %Y') %></p>
+        <% end %>
 </div>

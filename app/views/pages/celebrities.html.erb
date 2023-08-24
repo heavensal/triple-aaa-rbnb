@@ -1,31 +1,35 @@
-<h1> Mes célébrités </h1>
-<div class = "container-cards">
-  <h2>Mes célébrités</h2>
-    <% current_user.celebrities.each do |celebrity| %>
-      <%= link_to celebrity_path(celebrity) do %>
-        <div class="card-celebrity">
-          <div class="all-images">
-            <% if celebrity.photos.attached? %>
-              <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
-            <% end %>
-          </div>
-        <div class="card-details">
-          <div class="card-body">
-            <h6 class="card-title"><%= celebrity.name %></h6>
-            <p class="card-text"><%= celebrity.price %> €</p>
-          <div class="card-star">
-            <p>
-              <% if celebrity.reviews.empty? == false %>
-                <%= celebrity.rating %>
-                <i class="fa-solid fa-star"></i>
-                <% else %>
-                  Pas d'avis
-                <% end %>
-            </p>
-          </div>
-          </div>
-        </div>
-        </div>
-      <% end %>
-  <% end %>
+<div class = "container-cards infos-card p-3 rounded-4">
+
+  <div class="card-celebrity d-flex align-items-center justify-content-center">
+    <h2>🤩 Mes célébrités</h2>
   </div>
+
+  <% current_user.celebrities.each do |celebrity| %>
+    <%= link_to celebrity_path(celebrity) do %>
+      <div class="card-celebrity">
+        <div class="all-images">
+          <% if celebrity.photos.attached? %>
+            <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
+          <% end %>
+        </div>
+      <div class="card-details">
+        <div class="card-body">
+          <h6 class="card-title"><%= celebrity.name %></h6>
+          <p class="card-text"><%= celebrity.price %> €</p>
+        <div class="card-star">
+          <p>
+            <% if celebrity.reviews.empty? == false %>
+              <%= celebrity.rating %>
+              <i class="fa-solid fa-star"></i>
+              <% else %>
+                Pas d'avis
+              <% end %>
+          </p>
+        </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>

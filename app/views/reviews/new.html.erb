@@ -7,6 +7,6 @@
         <%= simple_form_for [@celebrity, @review] do |f| %>
         <%= f.input :rating, label: "Note"%>
         <%= f.input :comment, label: "Commentaire" %>
-        <%= f.submit "Valider votre avis", class: "button-louer" %>
+        <div class="d-flex justify-content-center align-items-end pt-5"><%= f.submit "Valider votre avis", class: "button-louer" %></div>
         <% end %>
       </div>
