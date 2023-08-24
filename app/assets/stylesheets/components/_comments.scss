@@ -25,3 +25,20 @@
   align-items: center;
   flex-basis: 15%;
 }
+
+.dashboard-rating {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dashboard-comment {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+
+.cartas {
+  width: 83%;
+}

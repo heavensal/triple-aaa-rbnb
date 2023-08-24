@@ -1,67 +1,76 @@
-<h1>Mon profil </h1>
+<h1 class="text-center my-5">Mon profil </h1>
 
-<div class = "container-cards">
-  <h2>Mes célébrités</h2>
-    <% current_user.celebrities.each do |celebrity| %>
-      <%= link_to celebrity_path(celebrity) do %>
-        <div class="card-celebrity">
-          <div class="all-images">
-            <% if celebrity.photos.attached? %>
-              <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
-            <% end %>
-          </div>
-        <div class="card-details">
-          <div class="card-body">
-            <h6 class="card-title"><%= celebrity.name %></h6>
-            <p class="card-text"><%= celebrity.price %> €</p>
-          <div class="card-star">
-            <p>
-              <% if celebrity.reviews.empty? == false %>
-                <%= celebrity.rating %>
-                <i class="fa-solid fa-star"></i>
-                <% else %>
-                  Pas d'avis
-                <% end %>
-            </p>
-          </div>
-          </div>
-        </div>
-        </div>
-      <% end %>
-  <% end %>
+<div class = "container-cards infos-card p-3 rounded-4">
+
+  <div class="card-celebrity d-flex align-items-center justify-content-center">
+    <h2>🤩 Mes célébrités</h2>
   </div>
 
-
-<div class = "container-cards">
-  <h2>Mes avis</h2>
-    <% current_user.reviews.each do |review| %>
-      <%= link_to celebrity_reviews_path(review) do %>
-        <div class="card-celebrity">
-        <div class="card-details">
-          <div class="card-body">
-          <h5 class="card-title"> <%=review.celebrity.name%></h5>
-            <h6 class="card-title"><%= review.rating %>étoiles</h6>
-            <p class="card-text"><%= review.comment %></p>
-          </div>
+  <% current_user.celebrities.each do |celebrity| %>
+    <%= link_to celebrity_path(celebrity) do %>
+      <div class="card-celebrity">
+        <div class="all-images">
+          <% if celebrity.photos.attached? %>
+            <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
+          <% end %>
+        </div>
+      <div class="card-details">
+        <div class="card-body">
+          <h6 class="card-title"><%= celebrity.name %></h6>
+          <p class="card-text"><%= celebrity.price %> €</p>
+        <div class="card-star">
+          <p>
+            <% if celebrity.reviews.empty? == false %>
+              <%= celebrity.rating %>
+              <i class="fa-solid fa-star"></i>
+              <% else %>
+                Pas d'avis
+              <% end %>
+          </p>
         </div>
         </div>
-      <% end %>
+      </div>
+      </div>
+    <% end %>
   <% end %>
+
+</div>
+
+<div class="d-flex cartas mx-auto justify-content-between">
+
+  <div class = "infos-card w-50  rounded-4 p-3 my-3 mx-3 text-center">
+    <h2 class="py-3">👍 Mes avis</h2>
+
+
+    <ul>
+      <% current_user.reviews.each do |review| %>
+        <li class="list-group-item my-5">
+
+          <div class="d-flex justify-content-between border-bottom">
+
+            <div class="dashboard-rating">
+              <div><%= review.celebrity.name %></div>
+              <div><%= review.rating %> ⭐</div>
+            </div>
+
+            <div class="dashboard-comment">
+              <div><%= review.comment %></div>
+            </div>
+
+          </div>
+
+        </li>
+      <% end %>
+    </ul>
+</div>
+
+  <div class = "infos-card w-50 rounded-4 p-3 my-3  mx-3 text-center ">
+    <h2 class="py-3 mb-5">📅 Mes Reservations</h2>
+      <% current_user.bookings.each do |booking| %>
+            <h5 class="card-title border-bottom"> <%=booking.celebrity.name%></h5>
+              <p class="card-title mb-5"><%= booking.date_debut.strftime('%a %d %b %Y') %>
+              --- <%= booking.date_fin.strftime('%a %d %b %Y') %></p>
+        <% end %>
   </div>
 
-<div class = "container-cards">
-  <h2>Mes Reservations</h2>
-    <% current_user.bookings.each do |booking| %>
-      <%= link_to booking_path(booking) do %>
-        <div class="card-celebrity">
-        <div class="card-details">
-          <div class="card-body">
-          <h5 class="card-title"> <%=booking.celebrity.name%></h5>
-            <h6 class="card-title"><%= booking.date_debut.strftime('%a %d %b %Y') %></h6>
-            <p class="card-text"><%= booking.date_fin.strftime('%a %d %b %Y') %></p>
-          </div>
-        </div>
-        </div>
-      <% end %>
-  <% end %>
 </div>
