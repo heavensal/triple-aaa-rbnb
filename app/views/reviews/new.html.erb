@@ -1,11 +1,12 @@
-<h1>Ajoutez un commentaire à votre célébrité </h1>
+<div class="enonce my-3 py-3">
+<h2>Ajoutez un commentaire à votre célébrité </h2>
+<p>Vous venez de passer un moment avec votre célébrité préférée, partagez nous votre expérience</p>
+</div>
 
-<h2>Vous venez de passer un moment avec votre célébrité préférée, partagez nous votre expérience</h2>
-
-      <div class="w-50">
+      <div class="formulaire infos-card rounded-4 p-5">
         <%= simple_form_for [@celebrity, @review] do |f| %>
         <%= f.input :rating, label: "Note"%>
         <%= f.input :comment, label: "Commentaire" %>
-        <%= f.submit "Valider votre avis" %>
+        <%= f.submit "Valider votre avis", class: "button-louer" %>
         <% end %>
       </div>

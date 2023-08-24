@@ -1,12 +1,15 @@
-<h1>Changer les dates de votre réservation</h1>
-
+<div class="enonce my-3 py-3">
+<h2>Changer les dates de votre réservation</h2>
+</div>
+<div class="enonce my-3 py-3">
 <h4>Vous avez un contre temps ?</h4>
 <p>Pas de problème, il est encore temps de changer les dates de votre réservation</p>
+</div>
 
-
-
+<div class="formulaire infos-card rounded-4 p-5">
 <%= simple_form_for [@celebrity, @booking] do |f| %>
   <%= f.input :date_debut, label: "Date de début de la location" %>
   <%= f.input :date_fin, label: "Date de fin de la location" %>
-  <%= f.submit "Modifier votre réservation" %>
+  <div class="d-flex justify-content-center align-items-end pt-5"><%= f.submit "Modifier votre réservation", class: "button-modifier" %></div>
 <% end %>
+</div>

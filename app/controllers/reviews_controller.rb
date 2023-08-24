@@ -23,9 +23,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @celebrity = Celebrity.find(params[:celebrity_id])
-    @review = Review.destroy
-    redirect_to celebrity_path(@celebrity)
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to celebrity_path(@review.celebrity), status: :see_other
   end
 
   private
