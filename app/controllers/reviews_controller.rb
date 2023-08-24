@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to celebrity_path(@celebrity)
     else
-      render :index, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
