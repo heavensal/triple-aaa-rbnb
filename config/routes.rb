@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "celebrities#index"
+  get "dashboard", to: "pages#dashboard"
+  get "dashboard/reviews", to: "pages#reviews"
+  get "dashboard/celebrities", to: "pages#celebrities"
+  get "dashboard/bookings", to: "pages#bookings"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :celebrities do
     resources :bookings, only: [:index, :create]

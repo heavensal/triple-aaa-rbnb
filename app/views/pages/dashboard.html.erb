@@ -1,0 +1,54 @@
+<h1>Mon profil </h1>
+
+<div class = "container-cards">
+  <h2>Mes célébrités</h2>
+    <% current_user.celebrities.each do |celebrity| %>
+      <%= link_to celebrity_path(celebrity) do %>
+        <div class="card-celebrity">
+          <div class="all-images">
+            <% if celebrity.photos.attached? %>
+              <%= cl_image_tag celebrity.photos.first.key, crop: :fill %>
+            <% end %>
+          </div>
+        <div class="card-details">
+          <div class="card-body">
+            <h6 class="card-title"><%= celebrity.name %></h6>
+            <p class="card-text"><%= celebrity.price %> €</p>
+          <div class="card-star">
+            <p>
+              <% if celebrity.reviews.empty? == false %>
+                <%= celebrity.rating %>
+                <i class="fa-solid fa-star"></i>
+                <% else %>
+                  Pas d'avis
+                <% end %>
+            </p>
+          </div>
+          </div>
+        </div>
+        </div>
+      <% end %>
+  <% end %>
+  </div>
+
+
+<div class = "container-cards">
+  <h2>Mes avis</h2>
+    <% current_user.reviews.each do |review| %>
+      <%= link_to dashboard_reviews_path(review) do %>
+        <div class="card-celebrity">
+        <div class="card-details">
+          <div class="card-body">
+          <h5 class="card-title"> <%=review.celebrity.name%></h5>
+            <h6 class="card-title"><%= review.rating %>étoiles</h6>
+            <p class="card-text"><%= review.comment %></p>
+          </div>
+        </div>
+        </div>
+      <% end %>
+  <% end %>
+  </div>
+
+<div class="card">
+<h2>Mes Réservations</h2>
+</div>

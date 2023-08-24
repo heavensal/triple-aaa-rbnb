@@ -1,3 +1,7 @@
-<h2><%= celebrity.name %></h2>
-<p><%= celebrity.address %></p>
-<p><%= celebrity.price %></p>
+  <%= link_to celebrity_path(celebrity) do %>
+    <div class="text-decoration: none">
+      <h2><%= celebrity.name %></h2>
+      <p><%= celebrity.address %></p>
+      <p><%= celebrity.price %>€</p>
+    </div>
+<% end %>
