@@ -1,0 +1,27 @@
+.comments-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+
+.rating-div {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-basis: 15%;
+}
+
+.text-rating-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 70%;
+}
+
+.delete-rating-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 15%;
+}

@@ -2,7 +2,7 @@
 <%# </div> %>
 
 
-<div class="container-body">
+<div class="container-body bg-white">
   <div class="searchbar"><%= form_with url: celebrities_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
@@ -15,7 +15,7 @@
 </div>
 
 
-  <div class = "container-cards">
+  <div class = "container-cards bg-white">
 
     <% @celebrities.each do |celebrity| %>
       <%= link_to celebrity_path(celebrity) do %>
