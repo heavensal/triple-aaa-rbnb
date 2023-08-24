@@ -1,3 +1,21 @@
+<nav id='menu'>
+  <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+  <ul>
+    <li><%= link_to "Accueil", celebrities_path %></li>
+    <li><%= link_to "Mettre ma célébrité en location", new_celebrity_path %></li>
+    <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %></li>
+
+    <%# <li><a class='dropdown-arrow' href='http://'>Dashboard</a>
+      <ul class='sub-menus'>
+        <%# <li><a href='http://'>Mes célébrités</a></li>
+        <li><a href='http://'>Mes avis</a></li> %>
+        <%# <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %>
+      <%# </ul> %>
+    <%# </li> %>
+
+  </ul>
+</nav>
+
 <%# <nav class="navbar-aaa">
 
   <div class="navbar-aaa-container">
@@ -22,23 +40,6 @@
 
 </nav>  %>
 
-<nav id='menu'>
-  <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
-  <ul>
-    <li><%= link_to "Accueil", celebrities_path %></li>
-    <li><%= link_to "Mettre ma célébrité en location", new_celebrity_path %></li>
-    <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %></li>
-
-    <%# <li><a class='dropdown-arrow' href='http://'>Dashboard</a>
-      <ul class='sub-menus'>
-        <%# <li><a href='http://'>Mes célébrités</a></li>
-        <li><a href='http://'>Mes avis</a></li> %>
-        <%# <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %>
-      <%# </ul> %>
-    <%# </li> %>
-
-  </ul>
-</nav>
 
 <%# <script>
   function updatemenu() {
