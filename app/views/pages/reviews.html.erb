@@ -1,26 +1,26 @@
-<div class = "container-cards infos-card p-3 rounded-4">
 
-    <h2 class="py-3">👍 Mes avis</h2>
+<div class="d-flex justify-content-center my-5">
+  <div class="infos-card w-50 py-3 rounded-4">
+      <h2 class="py-3 mb-5 text-center">👍 Mes Avis</h2>
+      <ul>
+          <li class="list-group-item d-flex justify-content-evenly">
 
+            <div><h5>🤩 Célébrités</h5> </div>
+            <div><p>⭐ Note</p></div>
+            <div><p>🖋️ Commentaire</p></div>
 
-    <ul>
-      <% current_user.reviews.each do |review| %>
-        <li class="list-group-item my-5">
+          </li>
+        <% current_user.reviews.each do |review| %>
+          <li class="list-group-item d-flex justify-content-evenly">
 
-          <div class="d-flex justify-content-between border-bottom">
+            <div><h5> <%= review.celebrity.name %></h5></div>
+            <div><p><%= review.rating %> ⭐</p></div>
+            <div ><p><%= review.comment %></p></div>
 
-            <div class="dashboard-rating">
-              <div><%= review.celebrity.name %></div>
-              <div><%= review.rating %> ⭐</div>
-            </div>
+          </li>
+          <% end %>
 
-            <div class="dashboard-comment">
-              <div><%= review.comment %></div>
-            </div>
+</ul>
+</div>
 
-          </div>
-
-        </li>
-      <% end %>
-    </ul>
 </div>
