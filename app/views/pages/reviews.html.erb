@@ -1,0 +1,18 @@
+<H1> Mes avis</h1>
+
+<div class = "container-cards">
+  <h2>Mes avis</h2>
+    <% current_user.reviews.each do |review| %>
+      <%= link_to celebrity_reviews_path(review) do %>
+        <div class="card-celebrity">
+        <div class="card-details">
+          <div class="card-body">
+          <h5 class="card-title"> <%=review.celebrity.name%></h5>
+            <h6 class="card-title"><%= review.rating %>étoiles</h6>
+            <p class="card-text"><%= review.comment %></p>
+          </div>
+        </div>
+        </div>
+      <% end %>
+  <% end %>
+  </div>
