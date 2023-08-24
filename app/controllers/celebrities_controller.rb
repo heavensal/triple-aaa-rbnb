@@ -1,6 +1,9 @@
 class CelebritiesController < ApplicationController
   def index
     @celebrities = Celebrity.all
+      if params[:query].present?
+        @celebrities = Celebrity.global_search(params[:query])
+      end
   end
 
   def show

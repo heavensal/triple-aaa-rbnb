@@ -5,25 +5,26 @@
     <h2>Parlez-nous de votre célébrité</h2>
 
 
-    <div data-controller="controller-toggle">
-      <button data-action="click->controller-toggle#fire" class="btn btn-outline-primary">Créez votre célébrité</button>
-      <div data-controller-toggle-target="newCelebrity" class="d-none">
-        <div class="w-50">
-          <%= simple_form_for @celebrity do |f| %>
-            <%= f.input :name, placeholder: 'Beyonce' %>
-            <%= f.input :price, placeholder: '100€' %>
-            <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}, class:"mapboxgl-ctrl-geocoder"} %>
-            <%= f.input :photos, as: :file, input_html: {multiple: true} %>
-            <%= f.submit %>
-            <% end %>
-        </div>
+          <div data-controller="controller-toggle">
+            <button data-action="click->controller-toggle#fire" class="btn btn-outline-primary">Créez votre célébrité</button>
+            <div data-controller-toggle-target="newCelebrity" class="d-none">
+              <div class="w-50">
+                <%= simple_form_for @celebrity do |f| %>
+                  <%= f.input :name, placeholder: 'Beyonce' %>
+                  <%= f.input :price, placeholder: '100€' %>
+                  <%= f.input :address, input_html: {data: {address_autocomplete_target: "address"}, class:"d-none"}, wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}, class:"mapboxgl-ctrl-geocoder"} %>
+                  <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+                  <%= f.submit %>
+                  <% end %>
+              </div>
+            </div>
+          </div>
       </div>
+
+    <div style="width: 50%; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
   </div>
-
-  <div style="width: 50%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-</div>
