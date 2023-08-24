@@ -63,7 +63,7 @@
         <ul>
           <% @bookings.each do |booking| %>
             <li class="list-group-item p-1">
-              <%= link_to "Modifier", edit_booking_path(booking), {:class => "btn btn-secondary p-1 m-1"}%>
+              <%= link_to "✏️", edit_booking_path(booking) %>
               <%= booking.date_debut.strftime('%a %d %b %Y') %>///
               <%= booking.date_fin.strftime('%a %d %b %Y') %>
           </li>
