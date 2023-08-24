@@ -35,7 +35,7 @@
 <div class = "container-cards">
   <h2>Mes avis</h2>
     <% current_user.reviews.each do |review| %>
-      <%= link_to dashboard_reviews_path(review) do %>
+      <%= link_to celebrity_reviews_path(review) do %>
         <div class="card-celebrity">
         <div class="card-details">
           <div class="card-body">
@@ -49,6 +49,19 @@
   <% end %>
   </div>
 
-<div class="card">
-<h2>Mes Réservations</h2>
+<div class = "container-cards">
+  <h2>Mes Reservations</h2>
+    <% current_user.bookings.each do |booking| %>
+      <%= link_to booking_path(booking) do %>
+        <div class="card-celebrity">
+        <div class="card-details">
+          <div class="card-body">
+          <h5 class="card-title"> <%=booking.celebrity.name%></h5>
+            <h6 class="card-title"><%= booking.date_debut.strftime('%a %d %b %Y') %></h6>
+            <p class="card-text"><%= booking.date_fin.strftime('%a %d %b %Y') %></p>
+          </div>
+        </div>
+        </div>
+      <% end %>
+  <% end %>
 </div>
