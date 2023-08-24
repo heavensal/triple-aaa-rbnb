@@ -1,21 +1,77 @@
-.myButton-louer {
-	box-shadow: 0px 0px 16px 8px #9fb4f2;
-	background-color:#7892c2;
-	border-radius:16px;
+.louer {
+  width: 100%
+}
+
+.button-louer {
+    width: 50%;
+    box-shadow: 0px 0px 8px 0px #54a3f7;
+    background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+    background-color:#007dc1;
+    border-radius:4px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+
+    font-size:16px;
+    padding:8px 32px;
+    text-decoration:none;
+    text-shadow:0px 0px 0px #154682;
+
+}
+
+.button-louer:hover {
+  background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+  background-color:#0061a7;
+}
+
+.button-louer:active {
+  position:relative;
+  top:1px;
+}
+
+.button-modifier {
+
+  width: 50%;
+  box-shadow: 0px 0px 8px 0px #9b9b9b;
+  background-color:#a6a7a8;
+  border-radius:4px;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+
+  font-size:16px;
+  padding:8px 32px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #939393;
+}
+
+.button-modifier:hover {
+	background-color:#c2c2c2;
+}
+
+.button-modifier:active {
+	position:relative;
+	top:1px;
+}
+
+.button-delete {
+
+  width: 50%;
+	box-shadow: 0px 0px 8px 0px #730202;
+	background-color:#d90f0f;
+	border-radius:4px;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:20px;
-	font-weight:bold;
-	padding:24px 40px;
+	font-size:16px;
+	padding:8px 32px;
 	text-decoration:none;
-	text-shadow:0px 0px 4px #283966;
+	text-shadow:0px 0px 0px #98999b;
 }
-.myButton-louer:hover {
-	background-color:#476e9e;
+.button-delete:hover {
+	background-color:#f21111;
 }
-.myButton-louer:active {
+.button-delete:active {
 	position:relative;
 	top:1px;
 }
