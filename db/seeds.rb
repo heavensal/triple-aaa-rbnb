@@ -30,10 +30,10 @@ celebrity.save!
 celebrity = Celebrity.new(name: "Beyonce", address: "48 rue du Lacydon 13002 Marseille, France", price: rand(0..500), user_id: 1)
 celebrity.save!
 
-celebrity = Celebrity.new(name: "Michael Jackson", address: "15 rue de Ruffi 13003 Marseille, France", price: rand(0..500), user_id: 2)
+celebrity = Celebrity.new(name: "Michael Jackson", address: "15 rue de Ruffi 13003 Marseille, France", price: rand(0..500), user_id: 1)
 celebrity.save!
 
-celebrity = Celebrity.new(name: "Sean Paul", address: "13 Rue Cappatti 06100 Nice, France", price: rand(0..500), user_id: 2)
+celebrity = Celebrity.new(name: "Sean Paul", address: "13 Rue Cappatti 06100 Nice, France", price: rand(0..500), user_id: 1)
 celebrity.save!
 
 celebrity = Celebrity.new(name: "Dylane", address: " 13 Rue François Boyer-Fonfrède 31100 Toulouse, France", price: rand(0..500), user_id: 1)
