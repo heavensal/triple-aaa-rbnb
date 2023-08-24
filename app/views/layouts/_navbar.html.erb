@@ -2,13 +2,13 @@
   <%# <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label> %>
   <ul>
     <li><%= link_to "Accueil", celebrities_path %></li>
-    <li><%= link_to "Mettre ma célébrité en location", new_celebrity_path %></li>
+    <li><%= link_to "Mettre ma célébrité en location 🌟", new_celebrity_path %></li>
     <li><%= link_to "Mon compte", dashboard_path %>
       <ul class='sub-menus'>
         <li><%= link_to "Mes célébrités", dashboard_celebrities_path %></li>
         <li><%= link_to "Mes avis", dashboard_reviews_path %></li>
         <li><%= link_to "Mes réservations",  dashboard_bookings_path %></li>
-        <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?" } %>
+        <li> <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" } %>
        </ul>
     </li>
 

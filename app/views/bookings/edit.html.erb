@@ -1,11 +1,12 @@
-<h1>UPDATE un booking</h1>
+<h1>Changer les dates de votre réservation</h1>
 
-<h2>un form avec le booking pour le modifier</h2>
+<h4>Vous avez un contre temps ?</h4>
+<p>Pas de problème, il est encore temps de changer les dates de votre réservation</p>
 
 
 
 <%= simple_form_for [@celebrity, @booking] do |f| %>
-  <%= f.input :date_debut %>
-  <%= f.input :date_fin %>
-  <%= f.submit %>
+  <%= f.input :date_debut, label: "Date de début de la location" %>
+  <%= f.input :date_fin, label: "Date de fin de la location" %>
+  <%= f.submit "Modifier votre réservation" %>
 <% end %>

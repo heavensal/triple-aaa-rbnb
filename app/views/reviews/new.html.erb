@@ -4,8 +4,8 @@
 
       <div class="w-50">
         <%= simple_form_for [@celebrity, @review] do |f| %>
-        <%= f.input :rating %>
-        <%= f.input :comment %>
-        <%= f.submit %>
+        <%= f.input :rating, label: "Note"%>
+        <%= f.input :comment, label: "Commentaire" %>
+        <%= f.submit "Valider votre avis" %>
         <% end %>
       </div>
