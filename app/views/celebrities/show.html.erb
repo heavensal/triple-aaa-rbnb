@@ -66,7 +66,9 @@
         <ul>
           <% @bookings.each do |booking| %>
             <li class="list-group-item p-1">
-              <%= link_to "✏️", edit_booking_path(booking) %>
+              <% if policy(booking).edit? %>
+                <%= link_to "✏️", edit_booking_path(booking) %>
+              <% end %>
               <%= booking.date_debut.strftime('%a %d %b %Y') %>///
               <%= booking.date_fin.strftime('%a %d %b %Y') %>
           </li>
@@ -77,7 +79,9 @@
       <div class="infos-card w-50 rounded-4 p-3 m-3 ">
 
       <div class="text-center">
-      <%= link_to "Ajouter un commentaire", new_celebrity_review_path(@celebrity), {:class => "button-louer p-1 my-3"}%>
+      <% if current_user.bookings.where(celebrity: @celebrity).present? %>
+        <%= link_to "Ajouter un commentaire", new_celebrity_review_path(@celebrity), {:class => "button-louer p-1 my-3"}%>
+      <% end %>
       </div>
 
 <ul>
@@ -94,8 +98,7 @@
                     </div>
 
                     <div class="delete-rating-div border-bottom">
-
-                      <%= link_to "🗑️", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer votre commentaire ?"} %>
+                        <%= link_to "🗑️", review_path(review), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer votre commentaire ?"} if policy(review).destroy? %>
                     </div>
 
                   </div>

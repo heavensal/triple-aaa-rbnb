@@ -8,10 +8,12 @@ class ReviewsController < ApplicationController
   def new
     @celebrity = Celebrity.find(params[:celebrity_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @celebrity = Celebrity.find(params[:celebrity_id])
     @review.celebrity = @celebrity
     @review.user = current_user
@@ -24,6 +26,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
+    authorize @review
     @review.destroy
     redirect_to celebrity_path(@review.celebrity), status: :see_other
   end
