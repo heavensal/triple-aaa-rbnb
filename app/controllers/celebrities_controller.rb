@@ -1,13 +1,14 @@
 class CelebritiesController < ApplicationController
   def index
     @celebrities = Celebrity.all
-      if params[:query].present?
-        @celebrities = Celebrity.global_search(params[:query])
-      end
+    if params[:query].present?
+      @celebrities = Celebrity.global_search(params[:query])
+    end
   end
 
   def show
     @celebrity = Celebrity.find(params[:id])
+    authorize @celebrity
     @bookings = @celebrity.bookings
     @reviews = @celebrity.reviews
     rating
@@ -15,6 +16,7 @@ class CelebritiesController < ApplicationController
 
   def new
     @celebrity = Celebrity.new
+    authorize @celebrity
     @celebrities = Celebrity.all
     @markers = @celebrities.map do |celebrity|
       {
@@ -28,6 +30,7 @@ class CelebritiesController < ApplicationController
 
   def create
     @celebrity = Celebrity.new(celebrities_params)
+    authorize @celebrity
     @celebrity.user = current_user
     if @celebrity.save!
       redirect_to celebrity_path(@celebrity)
@@ -38,10 +41,12 @@ class CelebritiesController < ApplicationController
 
   def edit
     @celebrity = Celebrity.find(params[:id])
+    authorize @celebrity
   end
 
   def update
     @celebrity = Celebrity.find(params[:id])
+    authorize @celebrity
     if @celebrity.update!(celebrities_params)
       redirect_to celebrity_path(@celebrity)
     else
@@ -51,6 +56,7 @@ class CelebritiesController < ApplicationController
 
   def destroy
     @celebrity = Celebrity.find(params[:id])
+    authorize @celebrity
     @celebrity.destroy
     redirect_to celebrities_path
   end

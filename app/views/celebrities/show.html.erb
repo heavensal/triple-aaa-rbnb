@@ -50,8 +50,12 @@
           <%= link_to "Louer", celebrity_bookings_path(@celebrity), {:class => "button-louer p-3 m-3"} %>
         </div>
         <div class="w-90">
-          <%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity), {:class => "button-modifier p-3 m-3"} %>
-          <%= link_to "Supprimer la célébrité", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer #{@celebrity.name} ?"}, class: 'button-delete p-3 m-3' %>
+          <% if policy(@celebrity).edit? %>
+            <%= link_to "Modifier la célébrité", edit_celebrity_path(@celebrity), {:class => "button-modifier p-3 m-3"} %>
+          <% end %>
+          <% if policy(@celebrity).destroy? %>
+            <%= link_to "Supprimer la célébrité", celebrity_path(@celebrity),  data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr de vouloir supprimer #{@celebrity.name} ?"}, class: 'button-delete p-3 m-3' %>
+          <% end %>
         </div>
 
       </div>

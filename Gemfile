@@ -5,6 +5,8 @@ ruby "3.1.2"
 
 gem "cloudinary"
 
+gem "pundit"
+
 gem "geocoder"
 
 gem "pg_search"
