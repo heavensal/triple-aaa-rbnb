@@ -1,4 +1,6 @@
-<h2>Log in</h2>
+<div class="formulaire infos-caard rounded-4 p-5">
+<h2 class="enonce my-3 py-3">Connexion</h2>
+
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
   <div class="form-inputs">
@@ -7,14 +9,18 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
     <%= f.input :password,
+                label: "Mot de passe",
                 required: false,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= f.input :remember_me, label: "Se rappeler de moi", as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <div class="form-actions pb-5">
+    <%= f.button :submit, "Connexion", class:"button-louer" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+</div>
