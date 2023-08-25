@@ -22,21 +22,21 @@ Celebrity.destroy_all
 
 puts "Adam te crée 8 célébrités"
 
-celebrity = Celebrity.new(name: "Rihanna", address: "21 Rue Haxo 13001 Marseille, France", price: rand(0..500), user_id: 1)
+celebrity = Celebrity.new(name: "Rihanna", address: "21 Rue Haxo 13001 Marseille, France", price: rand(0..500), user_id: 2)
 # file = URI.open("https://images.bfmtv.com/qLN34DPsDwHHc8flGNofxdB9VFQ=/0x42:2048x1194/2048x0/images/Rihanna-le-26-septembre-2022-a-Hollywood-1508835.jpg")
 # celebrity.photos.attach(io: file, filename: "rihanna.jpg", content_type: "image/jpg")
 celebrity.save!
 
-celebrity = Celebrity.new(name: "Beyonce", address: "48 rue du Lacydon 13002 Marseille, France", price: rand(0..500), user_id: 1)
+celebrity = Celebrity.new(name: "Beyonce", address: "48 rue du Lacydon 13002 Marseille, France", price: rand(0..500), user_id: 2)
 celebrity.save!
 
-celebrity = Celebrity.new(name: "Michael Jackson", address: "15 rue de Ruffi 13003 Marseille, France", price: rand(0..500), user_id: 1)
+celebrity = Celebrity.new(name: "Michael Jackson", address: "15 rue de Ruffi 13003 Marseille, France", price: rand(0..500), user_id: 2)
 celebrity.save!
 
-celebrity = Celebrity.new(name: "Sean Paul", address: "13 Rue Cappatti 06100 Nice, France", price: rand(0..500), user_id: 1)
+celebrity = Celebrity.new(name: "Jennifer", address: "13 Rue Cappatti 06100 Nice, France", price: rand(0..500), user_id: 2)
 celebrity.save!
 
-celebrity = Celebrity.new(name: "Dylane", address: " 13 Rue François Boyer-Fonfrède 31100 Toulouse, France", price: rand(0..500), user_id: 1)
+celebrity = Celebrity.new(name: "Anais", address: " 13 Rue François Boyer-Fonfrède 31100 Toulouse, France", price: rand(0..500), user_id: 2)
 celebrity.save!
 
 celebrity = Celebrity.new(name: "Neymar", address: "15 Rue de la Paix 75002 Paris, France", price: rand(0..500), user_id: 1)
@@ -45,7 +45,7 @@ celebrity.save!
 celebrity = Celebrity.new(name: "Britney Spears", address: "141 Rue Marcadet 75018 Paris, France", price: rand(0..500), user_id: 1)
 celebrity.save!
 
-celebrity = Celebrity.new(name: "Larusso", address: "1 Rue Saint-Henri 31100 Toulouse, France", price: rand(0..500), user_id: 1)
+celebrity = Celebrity.new(name: "Dylane", address: "1 Rue Saint-Henri 31100 Toulouse, France", price: rand(0..500), user_id: 1)
 celebrity.save!
 
-puts "1 super héro de plus fait !"
+puts "C'est fait !"
