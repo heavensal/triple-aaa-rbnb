@@ -20,7 +20,7 @@
             <strong>Cette célébrité a une note de</strong>
           </p>
           <p>
-            <% if @celebrity.rating %>
+            <% if @celebrity.rating != 0 %>
               <%= @celebrity.rating %> étoiles
             <% else %>
               Il n'y a pas encore de note.
@@ -63,6 +63,11 @@
 
     <div class="d-flex p-3">
       <div class="infos-card w-50 rounded-4 p-3 m-3 ">
+        <% if @bookings == [] %>
+        <div class="text-center m-2">
+          Il n'y a pas encore de réservation...
+
+        </div><% end %>
         <ul>
           <% @bookings.each do |booking| %>
             <li class="list-group-item p-1">
