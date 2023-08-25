@@ -1,26 +1,30 @@
 
 <div class="d-flex justify-content-center my-5">
-  <div class="infos-card w-50 py-3 rounded-4">
+
+
+
+  <div class="infos-card w-75 py-3 rounded-4">
       <h2 class="py-3 mb-5 text-center">👍 Mes Avis</h2>
-      <ul>
-          <li class="list-group-item d-flex justify-content-evenly">
 
-            <div><h5>🤩 Célébrités</h5> </div>
-            <div><p>⭐ Note</p></div>
-            <div><p>🖋️ Commentaire</p></div>
+<div class="container w-75">
 
-          </li>
+  <div class="row align-items-center justify-content-center py-3">
+    <div class="col"><h4>🤩 Célébrités</h4> </div>
+    <div class="col text-center"><h4>⭐ Note</h4></div>
+    <div class="col text-center"><h4>🖋️ Commentaire</h4></div>
+  </div>
+
         <% current_user.reviews.each do |review| %>
-          <li class="list-group-item d-flex justify-content-evenly">
-
-            <div class="tableau"><h5> <%= review.celebrity.name %></h5></div>
-            <div class="tableau"><p><%= review.rating %> ⭐</p></div>
-            <div class="tableau-comment"><p><%= review.comment %></p></div>
-
-          </li>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-4" ><p> <%= review.celebrity.name %></p></div>
+    <div class="col-4 text-center"><p><%= review.rating %> ⭐</p></div>
+    <div class="col-4 d-flex justify-content-center" ><p><%= review.comment %></p></div>
+  </div>
           <% end %>
 
-</ul>
+</div>
+
+
 </div>
 
 </div>

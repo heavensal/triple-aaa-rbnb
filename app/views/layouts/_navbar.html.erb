@@ -1,9 +1,11 @@
 <nav id='menu'>
   <%# <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label> %>
   <ul>
-    <li><%= link_to "Accueil", celebrities_path %></li>
-    <li><%= link_to "Mettre ma célébrité en location 🌟", new_celebrity_path %></li>
-    <li><%= link_to "Mon compte", dashboard_path %>
+    <li><%= link_to "🏠 Accueil", celebrities_path %></li>
+    <li><%= link_to "🌟 Mettre ma célébrité en location", new_celebrity_path %></li>
+    <li><% if current_user %>
+          <%= link_to "👤 #{current_user.email}", dashboard_path %>
+        <% end %>
       <ul class='sub-menus'>
         <li><%= link_to "Mes célébrités", dashboard_celebrities_path %></li>
         <li><%= link_to "Mes avis", dashboard_reviews_path %></li>
