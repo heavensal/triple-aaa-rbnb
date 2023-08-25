@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @celebrity = Celebrity.find(params[:celebrity_id])
     @booking.celebrity = @celebrity
     @booking.user = current_user
@@ -19,10 +20,12 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def update
     @booking = Booking.find(params[:id])
+    authorize @booking
     @celebrity = @booking.celebrity
     @booking.update!(booking_params)
     if @booking.save
@@ -34,6 +37,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.destroy
+    authorize @booking
     redirect_to celebrity_bookings_path
   end
 
