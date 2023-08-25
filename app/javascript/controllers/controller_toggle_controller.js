@@ -18,6 +18,7 @@ export default class extends Controller {
 
   update(){
     this.updateCelebrityTarget.classList.toggle("d-none");
+    this.buttonTarget.classList.toggle("d-none")
     this.updateCelebrityTarget.outerHTML = data.updateCelebrity
   }
 

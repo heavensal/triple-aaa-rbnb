@@ -6,7 +6,7 @@
 
 
     <div data-controller="controller-toggle">
-      <button data-action="click->controller-toggle#update" class="button-modifier text-center">Mettre à jour le profil de votre célébrité</button>
+      <button data-action="click->controller-toggle#update" data-controller-toggle-target="button" class="button-modifier text-center">Mettre à jour le profil de votre célébrité</button>
         <div data-controller-toggle-target="updateCelebrity" class="d-none">
           <div class="formulaire-modifier infos-card rounded-4 p-5">
             <%= simple_form_for @celebrity do |f| %>
