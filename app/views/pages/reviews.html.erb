@@ -13,9 +13,9 @@
         <% current_user.reviews.each do |review| %>
           <li class="list-group-item d-flex justify-content-evenly">
 
-            <div><h5> <%= review.celebrity.name %></h5></div>
-            <div><p><%= review.rating %> ⭐</p></div>
-            <div ><p><%= review.comment %></p></div>
+            <div class="tableau"><h5> <%= review.celebrity.name %></h5></div>
+            <div class="tableau"><p><%= review.rating %> ⭐</p></div>
+            <div class="tableau-comment"><p><%= review.comment %></p></div>
 
           </li>
           <% end %>

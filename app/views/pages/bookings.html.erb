@@ -13,9 +13,9 @@
         <% current_user.bookings.each do |booking| %>
           <li class="list-group-item d-flex justify-content-evenly">
 
-            <div><h5> <%= booking.celebrity.name %></h5></div>
-            <div><p><%= booking.date_debut.strftime('%a %d %b %Y') %></p></div>
-            <div ><p><%= booking.date_fin.strftime('%a %d %b %Y') %></p></div>
+            <div class="tableau" ><h5> <%= booking.celebrity.name %></h5></div>
+            <div class="tableau"><p><%= booking.date_debut.strftime('%a %d %b %Y') %></p></div>
+            <div class="tableau" ><p><%= booking.date_fin.strftime('%a %d %b %Y') %></p></div>
 
           </li>
           <% end %>
